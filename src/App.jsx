@@ -8,6 +8,8 @@ const App = () => {
         minima? Aspernatur odio illo beatae blanditiis debitis eum quae eaque!
       </div>
       <div className="button">button</div>
+
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum animi iusto quos delectus ducimus. Temporibus illo atque modi nam optio.
     </div>
   );
 };
