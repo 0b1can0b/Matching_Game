@@ -1,8 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+$bg: hsl(220 10% 10%);
 
 body {
-  background-color: hsl(220 10% 10%);
+  background-color: $bg;
   color: hsl(220 10% 80%);
   font-family: IBM Plex Mono;
   font-size: 125%;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
+  padding: 2rem;
+}
+
+.button {
+  background-color: lighten($bg, 5);
+  padding: 0.6rem 1.6rem;
+  border-radius: 0.5rem;
+
+  cursor: pointer;
+  transition: background-color 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  &:hover {
+    background-color: lighten($bg, 10);
+  }
 }
