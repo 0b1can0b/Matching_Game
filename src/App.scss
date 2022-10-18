@@ -15,6 +15,9 @@ body {
   gap: 2rem;
   align-items: flex-start;
   padding: 2rem;
+
+  width: mni(500px, 100%);
+  margin-inline: auto;
 }
 
 .button {
