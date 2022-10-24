@@ -14,3 +14,89 @@ body {
   align-items: flex-start;
   gap: 0.5rem;
 }
+
+.text_button {
+  all: unset;
+
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  position: relative;
+  isolation: isolate;
+  cursor: pointer;
+  font-size: 2rem;
+
+  &:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: 0.5rem;
+    background-color: hsl(220 15% 15%);
+
+    scale: 0;
+    transition: 0.25s cubic-bezier(0.4, 1.4, 0.6, 1);
+  }
+
+  &:hover {
+    &:after {
+      scale: 1;
+    }
+  }
+
+  &:active {
+    &:after {
+      background-color: hsl(220 15% 20%);
+      transition: 0.1s cubic-bezier(0.4, 1.4, 0.6, 1);
+    }
+  }
+
+  path {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.hover_button {
+  all: unset;
+
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  position: relative;
+  isolation: isolate;
+  cursor: pointer;
+  font-size: 2rem;
+  border-radius: 0.5rem;
+  background-color: hsl(220 15% 15%);
+  overflow: hidden;
+
+  --left: 50%;
+  --top: 50%;
+
+  &:after {
+    content: "";
+    position: absolute;
+    left: var(--left);
+    top: var(--top);
+    translate: -50% -50%;
+    z-index: -1;
+    --size: 16rem;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    background-image: radial-gradient(hsl(220 75% 25% / 50%), transparent 50%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  &:hover {
+    &:after {
+      opacity: 1;
+    }
+  }
+}
