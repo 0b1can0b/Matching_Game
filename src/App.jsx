@@ -8,7 +8,8 @@
 
 // export default App;
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
 import { CgArrowRight } from "react-icons/cg";
 import "./App.scss";
 

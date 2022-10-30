@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-spring/web": "^9.5.5",
     "g": "^2.0.1",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
@@ -16,6 +17,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
     "react-router-dom": "^6.4.2",
+    "react-transition-group": "^4.4.5",
     "sanitize.css": "^13.0.0",
     "sort-by": "^1.2.0"
   },
