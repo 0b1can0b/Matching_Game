@@ -100,3 +100,22 @@ body {
     }
   }
 }
+
+.app {
+  display: flex;
+
+  button {
+    all: unset;
+    background-color: hsl(220 15% 15%);
+    color: hsl(220 15% 75%);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+  }
+
+  .dropdown {
+    background-color: hsl(220 15% 15%);
+    color: hsl(220 15% 75%);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+  }
+}
