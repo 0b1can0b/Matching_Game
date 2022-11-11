@@ -91,9 +91,9 @@ const App = () => {
           <motion.div
             className="dropdown"
             layout
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.85 }}
           >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
             nemo iusto eveniet temporibus. Possimus quisquam nihil rerum odio
