@@ -3,7 +3,41 @@ import "./App.scss";
 
 console.clear();
 
-const emojiList = ["🐌", "👣", "🦴", "⚽", "🧠", "🧪", "🎄", "⛑"];
+const emojiList = [
+  "🐌",
+  "👣",
+  "🦴",
+  "⚽",
+  "🧠",
+  "🧪",
+  "🎄",
+  "⛑",
+  "🎨",
+  "🕶",
+  "👟",
+  "🏓",
+  "🍿",
+  "🍙",
+  "🍧",
+  "🍯",
+  "☕",
+  "🍉",
+  "🌰",
+  "🍁",
+  "🛹",
+  "🪂",
+  "🌌",
+  "🏢",
+  "💈",
+]
+  .map((e) => {
+    return {
+      item: e,
+      random: Math.random(),
+    };
+  })
+  .sort((a, b) => b.random - a.random)
+  .map((e) => e.item);
 
 const generateBoard = (rows, cols) => {
   const numbersArray = Array(rows * cols)
@@ -19,10 +53,10 @@ const generateBoard = (rows, cols) => {
     .map((e) => e.item);
 
   let count = -1;
-  const boardArray = Array(rows)
+  const boardArray = Array(cols)
     .fill(0)
     .map(() =>
-      Array(cols)
+      Array(rows)
         .fill(0)
         .map(() => {
           count++;
@@ -34,7 +68,7 @@ const generateBoard = (rows, cols) => {
 };
 
 const App = () => {
-  const [board, setBoard] = useState(generateBoard(2, 2));
+  const [board, setBoard] = useState(generateBoard(4, 4));
   const [canClick, setCanClick] = useState(true);
   const [prevClickedItem, setPrevClickedItem] = useState([]);
   const [clickedItem, setClickedItem] = useState([]);
