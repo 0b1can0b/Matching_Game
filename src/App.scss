@@ -15,3 +15,90 @@ body {
   align-items: flex-start;
   gap: 0.5rem;
 }
+
+.app {
+  min-height: 100vh;
+  padding: 0;
+  display: grid;
+  place-content: center;
+}
+
+.board {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.card {
+  perspective: 500px;
+  cursor: pointer;
+
+  .card_front,
+  .card_back {
+    background-color: hsl(220 15% 25%);
+    border-radius: 1vw;
+    transition: 0.5s ease-out;
+  }
+
+  .card_front {
+    position: absolute;
+    inset: 0;
+
+    &:hover {
+      background-color: hsl(220 15% 50%);
+    }
+  }
+
+  .card_back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 12.5vw;
+    aspect-ratio: 1;
+    font-size: 5vw;
+
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+  }
+
+  &.clicked,
+  &.prev_clicked {
+    .card_front {
+      transform: rotateY(-180deg);
+    }
+
+    .card_back {
+      transform: rotateY(0deg);
+    }
+
+    &:hover {
+      cursor: default;
+
+      .card_back {
+        background-color: hsl(220 15% 25%);
+      }
+    }
+  }
+
+  &.solved {
+    pointer-events: none;
+
+    .card_front {
+      transform: rotateY(-180deg);
+    }
+
+    .card_back {
+      transform: rotateY(0deg);
+    }
+  }
+}
+
+.board:has(.prev_clicked) .card:hover .card_back {
+  cursor: default;
+  background-color: hsl(220 15% 25%);
+}
