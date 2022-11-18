@@ -11,9 +11,69 @@ body {
 .app {
   padding: 1rem;
   display: flex;
-  // flex-direction: column;
-  align-items: flex-start;
+  flex-direction: column;
+  // align-items: flex-start;
   gap: 0.5rem;
 
-  flex-wrap: wrap;
+  min-height: calc(100vh - 2rem);
+  align-items: center;
+  justify-content: center;
+}
+
+.board {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  .row {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .icon {
+    display: flex;
+    perspective: 250px;
+    position: relative;
+    cursor: pointer;
+
+    & > * {
+      background-color: hsl(220 15% 15%);
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      transition: 0.5s ease-out;
+    }
+    & > *:hover {
+      background-color: hsl(220 15% 20%);
+    }
+
+    .front {
+      position: absolute;
+      inset: 0;
+      transform: rotateY(0deg);
+    }
+    .back {
+      display: flex;
+      transform: rotateY(180deg);
+      backface-visibility: hidden;
+      transform-style: preserve-3d;
+
+      svg {
+        $size: 5rem;
+        width: $size;
+        height: $size;
+        transform: translateZ(25px) perspective(100px) scale(0.75);
+        backface-visibility: hidden;
+      }
+    }
+
+    &.clicked,
+    &.prev_clicked {
+      .front {
+        transform: rotateY(-180deg);
+      }
+      .back {
+        transform: rotateY(0deg);
+      }
+    }
+  }
 }
