@@ -59,7 +59,13 @@ const getShadowBoard = (rows, cols) => {
 };
 
 const App = () => {
-  const [boardSize, setBoardSize] = useState({ x: 4, y: 4 });
+  const storedBoardSize = localStorage.getItem("storedBoardSize");
+
+  console.log(storedBoardSize, JSON.parse(storedBoardSize));
+
+  const [boardSize, setBoardSize] = useState(
+    JSON.parse(storedBoardSize) || { x: 4, y: 4 }
+  );
   const [icons, setIcons] = useState(getIconsList(boardSize.x, boardSize.y));
   const [board, setBoard] = useState(getBoard(boardSize.x, boardSize.y));
   const [shadowBoard, setShadowBoard] = useState(
@@ -139,6 +145,10 @@ const App = () => {
   const handelPopupClose = (i1, i2) => {
     if ((i1 * i2) % 2 === 0) {
       setBoardSize({ x: i1 + 2, y: i2 + 2 });
+
+      const tempObj = { x: i1 + 2, y: i2 + 2 };
+      localStorage.setItem("storedBoardSize", JSON.stringify(tempObj));
+
       setOpen(false);
     }
   };
@@ -164,7 +174,7 @@ const App = () => {
 
   return (
     <div className="app">
-      <div className="board">
+      <div className={`board x_${boardSize.x} y_${boardSize.y}`}>
         {board.map((row, rowIndex) => (
           <div key={rowIndex} className="row">
             {row.map((col, colIndex) => {
