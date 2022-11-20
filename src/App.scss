@@ -67,6 +67,22 @@ body {
         height: $size;
         transform: translateZ(25px) perspective(100px) scale(0.75);
         backface-visibility: hidden;
+
+        @at-root .board.y_4 .icon .back svg {
+          $size: 3rem;
+          width: $size;
+          height: $size;
+        }
+        @at-root .board.y_5 .icon .back svg {
+          $size: 2.5rem;
+          width: $size;
+          height: $size;
+        }
+        @at-root .board.y_6 .icon .back svg {
+          $size: 1.75rem;
+          width: $size;
+          height: $size;
+        }
       }
     }
 
@@ -83,27 +99,27 @@ body {
     }
   }
 
-  &.y_4 {
-    .icon .back svg {
-      $size: 3rem;
-      width: $size;
-      height: $size;
-    }
-  }
-  &.y_5 {
-    .icon .back svg {
-      $size: 2.5rem;
-      width: $size;
-      height: $size;
-    }
-  }
-  &.y_6 {
-    .icon .back svg {
-      $size: 1.75rem;
-      width: $size;
-      height: $size;
-    }
-  }
+  // &.y_4 {
+  //   .icon .back svg {
+  //     $size: 3rem;
+  //     width: $size;
+  //     height: $size;
+  //   }
+  // }
+  // &.y_5 {
+  //   .icon .back svg {
+  //     $size: 2.5rem;
+  //     width: $size;
+  //     height: $size;
+  //   }
+  // }
+  // &.y_6 {
+  //   .icon .back svg {
+  //     $size: 1.75rem;
+  //     width: $size;
+  //     height: $size;
+  //   }
+  // }
 }
 
 .win {
